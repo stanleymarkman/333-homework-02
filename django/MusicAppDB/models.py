@@ -12,6 +12,9 @@ class ArtistAttributes(models.Model):
     birth_location = models.CharField(max_length=255)
     birth_year = models.IntegerField(default=2000)
 
+    def __str__(self):
+        return self.name + '' + self.genre + '' + self.birth_location + '' + self.birth_year
+
 class Artists(models.Model):
     song = models.CharField(max_length=255, primary_key=True)
     artist = models.ForeignKey(ArtistAttributes, on_delete=models.RESTRICT)

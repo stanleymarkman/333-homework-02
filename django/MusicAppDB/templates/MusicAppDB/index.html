@@ -15,6 +15,7 @@
 	<form method="POST" action="/reg/">
         {% csrf_token %}
         {{ reg_form | linebreaks }}
+        {{reg_form.output}}
         <input type="submit" name="Submit" value="Submit"/>
     </form>
 
@@ -24,6 +25,11 @@
         {{ ret_form | linebreaks }}
         <input type="submit" name="submitsong" value="Submit"/>
 	</form>
+    {% for i in ratings %}
+    <p> {{ i.song.song }} by {{ i.song.artist.name }} </p>
+    <p> Rating: {{ i.rating }} </p>
+    {{reg_form.output}}
+    {% endfor %}
 
     <h1> Retrieve Artist Attributes </h1>
     <form method="POST" action="/artistret/">
@@ -31,9 +37,13 @@
         {{ ret_form | linebreaks }}
         <input type="submit" name="submitsong" value="Submit"/>
 	</form>
-    {% for i in ratings %}
-    <td> {{ i.song }} </td>
+    {% for i in artists %}
+    <p> Artist: {{ i.name }} </p>
+    <p> Genre: {{ i.genre }} </p>
+    <p> Born: {{ i.birth_location }}, {{ i.birth_year }} </p>
+    {{reg_form.output}}
     {% endfor %}
+
     </div>
 
 </body>

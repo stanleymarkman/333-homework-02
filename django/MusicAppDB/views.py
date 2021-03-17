@@ -8,9 +8,21 @@ def registration(request):
     ret_form = RetrieveForm
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
-        if form.is_valid():
-            context = {'reg_form': reg_form, 'ret_form': ret_form}
-    
+    if form.is_valid():
+        try:
+            user = Users.objects.get(username = form.cleaned_data.get("username"))
+        except Users.DoesNotExist:
+            user = None
+
+        if(user == None and form.cleaned_data.get("username") != ""):
+            newUser = Users(username = form.cleaned_data.get("username"), password = form.cleaned_data.get("password"))
+            newUser.save()
+            reg_form.output = "User "+form.cleaned_data.get("username")+" created!"
+
+        else:
+            reg_form.output = "Username is empty or taken!"
+        context = {'reg_form': reg_form, 'ret_form': ret_form}
+
     else:
         context = {'reg_form': reg_form, 'ret_form': ret_form}
 
@@ -22,8 +34,11 @@ def songret(request):
     if request.method == 'POST':
         form = RetrieveForm(request.POST)
         if form.is_valid():
-            ratings = Ratings.objects.all()
-            context = {'reg_form': reg_form, 'ret_form': ret_form, 'ratings': ratings}
+            try:
+                ratings = Ratings.objects.filter(username=form.cleaned_data.get("username"))
+                context = {'reg_form': reg_form, 'ret_form': ret_form, 'ratings': ratings}
+            except Ratings.DoesNotExist:
+                context = {'reg_form': reg_form, 'ret_form': ret_form}
     
     else:
         context = {'reg_form': reg_form, 'ret_form': ret_form}
@@ -36,12 +51,17 @@ def artistret(request):
     if request.method == 'POST':
         form = RetrieveForm(request.POST)
         if form.is_valid():
-            pass
-    
-    else:
-        pass
+            try:
+                artists = ArtistAttributes.objects.filter(name=form.cleaned_data.get("username"))
+                context = {'reg_form': reg_form, 'ret_form': ret_form, 'artists': artists}
+            except ArtistAttributes.DoesNotExist:
+                context = {'reg_form': reg_form, 'ret_form': ret_form}
+        else:
+            context = {'reg_form': reg_form, 'ret_form': ret_form}
 
-    context = {'reg_form': reg_form, 'ret_form': ret_form}
+    else:
+        context = {'reg_form': reg_form, 'ret_form': ret_form}
+
     return render(request, 'MusicAppDB/index.html', context)
 
 def index(request):
