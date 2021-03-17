@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import RegistrationForm, RetrieveForm
+from .models import Users, ArtistAttributes, Artists, Ratings
 # Create your views here.
 
 def registration(request):
@@ -15,7 +16,20 @@ def registration(request):
     context = {'reg_form': reg_form, 'ret_form': ret_form}
     return render(request, 'MusicAppDB/index.html', context)
 
-def retrieve(request):
+def songret(request):
+    if request.method == 'POST':
+        form = RetrieveForm(request.POST)
+        if form.is_valid():
+            pass
+    
+    else:
+        reg_form = RegistrationForm
+        ret_form = RetrieveForm
+
+    context = {'reg_form': reg_form, 'ret_form': ret_form}
+    return render(request, 'MusicAppDB/index.html', context)
+
+def artistret(request):
     if request.method == 'POST':
         form = RetrieveForm(request.POST)
         if form.is_valid():

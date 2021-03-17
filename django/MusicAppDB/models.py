@@ -21,7 +21,5 @@ class Ratings(models.Model):
     song = models.ForeignKey(Artists, on_delete=models.RESTRICT)
     rating = models.IntegerField(default=1)
     
-    # objects = PersonManager()
-
     class Meta:
         models.UniqueConstraint(fields=['username', 'song'], name='user_song_composite')
