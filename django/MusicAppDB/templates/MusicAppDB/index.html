@@ -12,15 +12,16 @@
 	<div class="forms">
 
 	<h1> Registration </h1>
-	<form method="POST" action="">
-        <input type="text" name="username" placeholder="New Username" /><br>
-        <input type="text" name="password" placeholder="New Password" /><br>
-        <input type="submit" name="submit" value="Submit"/>
+	<form method="POST" action="/registration/">
+        {% csrf_token %}
+        {{ reg_form | linebreaks }}
+        <input type="submit" name="Submit" value="Submit"/>
     </form>
 
     <h1> Retrieve Songs </h1>
-    <form method="POST" action="">
-        <input type="text" name="raterusername" placeholder="Rater Username" /><br>
+    <form method="POST" action="/retieve/">
+        {% csrf_token %}
+        {{ ret_form | linebreaks }}
         <input type="submit" name="submitsong" value="Submit"/>
 	</form>
 	
