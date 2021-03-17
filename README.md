@@ -9,3 +9,5 @@ python3 manage.py migrate
 python3 manage.py loaddata initial.json
 python3 manage.py runserver
 ```
+Tom Arbaugh did Django implementation
+Stanley Markman did lammp, sql, css and helped Django query implementation
