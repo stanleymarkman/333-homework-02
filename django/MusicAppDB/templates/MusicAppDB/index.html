@@ -19,7 +19,14 @@
     </form>
 
     <h1> Retrieve Songs </h1>
-    <form method="POST" action="/retieve/">
+    <form method="POST" action="/songretrieve/">
+        {% csrf_token %}
+        {{ ret_form | linebreaks }}
+        <input type="submit" name="submitsong" value="Submit"/>
+	</form>
+
+    <h1> Retrieve Artist Attributes </h1>
+    <form method="POST" action="/artistretieve/">
         {% csrf_token %}
         {{ ret_form | linebreaks }}
         <input type="submit" name="submitsong" value="Submit"/>

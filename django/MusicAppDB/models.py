@@ -2,10 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-# class RatingsManager(models.Manager):
-#     def get_by_natural_key(self, username, song):
-#         return self.get(username=username, song=song)
-
 class Users(models.Model):
     username = models.CharField(max_length=255, primary_key=True)
     password = models.CharField(max_length=255)
