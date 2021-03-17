@@ -1,0 +1,118 @@
+[
+    {
+      "model": "myapp.users",
+      "pk": 1,
+      "fields": {
+        "username": "Amelia-Earhart",
+        "password": "Youaom139&yu7"
+      }
+    },
+    {
+        "model": "myapp.users",
+        "pk": 2,
+        "fields": {
+          "username": "Otto",
+          "password": "StarWars2*"
+        }
+    },
+    {
+        "model": "myapp.artistattributes",
+        "pk": 3,
+        "fields": {
+          "name": "Aimee Mann",
+          "genre": "Rock, pop rock, folk",
+          "birth_location": "Virginia, U.S.",
+          "birth_year": "1960"
+        }
+    },
+    {
+        "model": "myapp.artistattributes",
+        "pk": 4,
+        "fields": {
+          "name": "Vincent van Gogh",
+          "genre": "Post-Impressionist",
+          "birth_location": "Zundert, Netherlands",
+          "birth_year": "1890"
+        }
+    },
+    {
+        "model": "myapp.artistattributes",
+        "pk": 5,
+        "fields": {
+          "name": "Bill Evans",
+          "genre": "Jazz",
+          "birth_location": "New Jersey, U.S.",
+          "birth_year": "1980"
+        }
+    },
+    {
+        "model": "myapp.artistattributes",
+        "pk": 6,
+        "fields": {
+          "name": "Kendrick Lamar",
+          "genre": "Rap",
+          "birth_location": "California, U.S.",
+          "birth_year": "1987"
+        }
+    },
+    {
+        "model": "myapp.artists",
+        "pk": 7,
+        "fields": {
+          "song": "Freeway",
+          "artist": 3
+        }
+    },
+    {
+        "model": "myapp.artists",
+        "pk": 8,
+        "fields": {
+          "song": "Days of Wine and Roses",
+          "artist": 5
+        }
+    },
+    {
+        "model": "myapp.artists",
+        "pk": 9,
+        "fields": {
+          "song": "These Walls",
+          "artist": 6
+        }
+    },
+    {
+        "model": "myapp.ratings",
+        "pk": 10,
+        "fields": {
+          "username": 1,
+          "song": "Freeway",
+          "rating": 3
+        }
+    },
+    {
+        "model": "myapp.ratings",
+        "pk": 10,
+        "fields": {
+          "username": 1,
+          "song": "Days of Wine and Roses",
+          "rating": 4
+        }
+    },
+    {
+        "model": "myapp.ratings",
+        "pk": 10,
+        "fields": {
+          "username": 2,
+          "song": "Days of Wine and Roses",
+          "rating": 5
+        }
+    },
+    {
+        "model": "myapp.ratings",
+        "pk": 10,
+        "fields": {
+          "username": 1,
+          "song": "These Walls",
+          "rating": 4
+        }
+    }
+]
