@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 
-class RatingsManager(models.Manager):
-    def get_by_natural_key(self, username, song):
-        return self.get(username=username, song=song)
+# class RatingsManager(models.Manager):
+#     def get_by_natural_key(self, username, song):
+#         return self.get(username=username, song=song)
 
 class Users(models.Model):
     username = models.CharField(max_length=255, primary_key=True)
@@ -25,7 +25,7 @@ class Ratings(models.Model):
     song = models.ForeignKey(Artists, on_delete=models.RESTRICT)
     rating = models.IntegerField(default=1)
     
-    objects = PersonManager()
+    # objects = PersonManager()
 
     class Meta:
         models.UniqueConstraint(fields=['username', 'song'], name='user_song_composite')
