@@ -4,40 +4,42 @@ from .models import Users, ArtistAttributes, Artists, Ratings
 # Create your views here.
 
 def registration(request):
+    reg_form = RegistrationForm
+    ret_form = RetrieveForm
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            pass
+            context = {'reg_form': reg_form, 'ret_form': ret_form}
     
     else:
-        reg_form = RegistrationForm
-        ret_form = RetrieveForm
+        context = {'reg_form': reg_form, 'ret_form': ret_form}
 
-    context = {'reg_form': reg_form, 'ret_form': ret_form}
     return render(request, 'MusicAppDB/index.html', context)
 
 def songret(request):
+    reg_form = RegistrationForm
+    ret_form = RetrieveForm
     if request.method == 'POST':
         form = RetrieveForm(request.POST)
         if form.is_valid():
-            pass
+            ratings = Ratings.objects.all()
+            context = {'reg_form': reg_form, 'ret_form': ret_form, 'ratings': ratings}
     
     else:
-        reg_form = RegistrationForm
-        ret_form = RetrieveForm
-
-    context = {'reg_form': reg_form, 'ret_form': ret_form}
+        context = {'reg_form': reg_form, 'ret_form': ret_form}
+    
     return render(request, 'MusicAppDB/index.html', context)
 
 def artistret(request):
+    reg_form = RegistrationForm
+    ret_form = RetrieveForm
     if request.method == 'POST':
         form = RetrieveForm(request.POST)
         if form.is_valid():
             pass
     
     else:
-        reg_form = RegistrationForm
-        ret_form = RetrieveForm
+        pass
 
     context = {'reg_form': reg_form, 'ret_form': ret_form}
     return render(request, 'MusicAppDB/index.html', context)

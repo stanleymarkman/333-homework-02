@@ -31,7 +31,9 @@
         {{ ret_form | linebreaks }}
         <input type="submit" name="submitsong" value="Submit"/>
 	</form>
-	
+    {% for i in ratings %}
+    <td> {{ i.song }} </td>
+    {% endfor %}
     </div>
 
 </body>
